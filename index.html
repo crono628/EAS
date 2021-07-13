@@ -1,41 +1,18 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="style.css">
 
 <head>
-  <meta charset="utf-8">
-
-  <title>Etch-A-Sketch</title>
-  <link rel="stylesheet" href="styles/styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 
 <body>
-    <div class="page-container">
-        <p class="title">Etch-A-Sketch</p>
-        <div class="sketch-container">
-            <div class="grid-container"></div>
+    <div class="container"></div>
 
-            <div class="toggle-options-container">
-                <button class="tools-button">Tools</button>
-                <span class="range-slider">
-                    <span style="padding-right: 5px; font-size: 16px; color: white ">0</span>&nbsp;
-                    <input type="range" min="1" max="64" value="16" class="slider" id="my-range" onInput = "document.getElementById('slider-output').innerHTML = this.value;" onchange="createGrid(this.value) , changePenType();"  />
-                    <span id="slider-output" style="padding-left:20px;">16</span>
-                </span>
-                <button class="clear-button">Clear</button>
-            </div>
-
-            <div class = "tools-container" id ="tools" style = "visibility: hidden;" >
-                <button id = "pen-type" >Pen Type: Follow</button>
-                <button id = "fill-grid">Fill Grid</button>
-                <button id = "rainbow" style = "visibility: hidden;">Rainbow</button>
-                <div id ="picker"></div>
-            </div>
-
-        </div>
-    </div>
-  <script src="script.js"></script>
 </body>
+<script src="EAS.js"></script>
+
 </html>
