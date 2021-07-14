@@ -3,10 +3,13 @@
     width: 20px;
     height: 20px;
     display: inline-block;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
     border: 1px solid black;
     width: fit-content;
-    height: 30em;
+    height: fit-content;
 }
+
