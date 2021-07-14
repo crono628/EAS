@@ -1,9 +1,16 @@
 let container = document.querySelector("container")
 let div = document.createElement('div')
 div.classList.add('grid')
-container.appendChild(div)
 
-function drawGrid(x)
-for (let r = 1; r < x; r++) {
-    for (let c = 0; c < x; c++)
-    }
+
+function drawRows(x) {
+let gridCells = x * x
+for (let i = 0; i < gridCells; i++){
+    
+}
+
+
+
+
+drawRows(10)
+console.log(drawRows(10))
