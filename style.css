@@ -1,15 +1,17 @@
+
 .grid {
+    background-color: white;
     border: 1px solid black;
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-}
+} 
 
 .container {
-    border: 1px solid black;
-    width: fit-content;
-    height: fit-content;
-}
+    margin-top: 50px;
+    display: inline-grid;
+    grid-template-columns: repeat(16, 2fr);
+    grid-template-rows: repeat(16, 2fr);
+    border: 5px solid white;
+    border-radius: 5px;
+    height: 720px;
+    width: 720px;
 
+}

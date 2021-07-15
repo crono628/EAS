@@ -10,13 +10,18 @@
 </head>
 
 <body>
-	<label for="chartSize">choose a size 2 - 16:</label>
 
-<input type="number" id="chartSize" min="2" max="16" value="16">
-<button for="chartSize">UPDATE</button>
-  <div class="btn">
-<button id="clear">CLEAR</button>
-  </div>
+
+
+	<div class="sliderContainer">
+		<input type="range" min="8" max="64" value="16" id="slider">
+          <p id="gridSizeInfo">GRID SIZE: 16</p> 
+    </div>
+
+    <div class="btn">
+        <button id="clear">CLEAR</button>
+    </div>
+  
     <div class="container"></div>
 
 </body>
