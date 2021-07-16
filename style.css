@@ -1,17 +1,13 @@
 
-.grid {
+#grid {
     background-color: white;
     border: 1px solid black;
 } 
 
 .container {
-    margin-top: 50px;
     display: inline-grid;
     grid-template-columns: repeat(16, 2fr);
     grid-template-rows: repeat(16, 2fr);
-    border: 5px solid white;
-    border-radius: 5px;
-    height: 720px;
-    width: 720px;
-
+    height: 600px;
+    width: 600px;
 }
