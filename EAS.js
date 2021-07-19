@@ -2,7 +2,19 @@ const container = document.querySelector(".container")
 const gridInfo = document.querySelector("#gridInfo")
 const btnClear = document.querySelector('#clear');
 btnClear.onclick = () => clearGrid();
+const colorChoices = document.querySelector('.btnContainer')
+colorChoices.forEach((color)  => {
+  color.addEventListener('click', function () {
+    event.target.style.backgroundColor = 
+  })
+})
 
+
+
+
+ 
+
+// console.log(color(event))
 originalGrid()
 
 function originalGrid() {
@@ -12,7 +24,7 @@ function originalGrid() {
     const newDiv = document.createElement('div');
     newDiv.setAttribute('id', 'grid');
     newDiv.addEventListener('mouseover', function (event) {
-      event.target.style.backgroundColor = 'black';
+      event.target.style.backgroundColor = 'black'
     });
     container.appendChild(newDiv);
   }
