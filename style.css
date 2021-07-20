@@ -5,8 +5,13 @@ body{
     align-items: center;
 }
 
+#customBtn{
+font-family: monospace;
+color: white;
+}
+
 #gridInfo{
-  font-family:  Lucida Console;
+  font-family: Lucida Console;
   color: rgb(184, 184, 184)
 }
 
@@ -46,6 +51,8 @@ body{
     height: 50px;
     width: auto;
     justify-content: space-evenly;
+    background-color: rgb(165, 59, 94);
+    border-radius: 10%
 }
 
 .btn{
