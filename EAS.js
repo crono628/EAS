@@ -3,18 +3,34 @@ const gridInfo = document.querySelector("#gridInfo")
 const btnClear = document.querySelector('#clear');
 btnClear.onclick = () => clearGrid();
 const colorChoices = document.querySelector('.btnContainer')
-colorChoices.forEach((color)  => {
-  color.addEventListener('click', function () {
-    event.target.style.backgroundColor = 
+function rainbowSelect() {
+  let rainbowChoices = Math.floor(Math.random()*16777215).toString(16)
+  return rainbowChoices
+}
+
+let rainbow = document.querySelector('#rainbow')
+rainbow.addEventListener('click', () => {
+  let div = document.querySelectorAll('#grid');
+  div.forEach((option) => {
+    option.addEventListener('mouseover', () => {
+      option.style.backgroundColor = '#' + rainbowSelect();
+    })
+  })
+})
+
+
+let black = document.querySelector('#black')
+black.addEventListener('click', () => {
+  let div = document.querySelectorAll('#grid');
+  div.forEach((option) => {
+    option.addEventListener('mouseover', () => {
+      option.style.backgroundColor = 'black'
+    })
   })
 })
 
 
 
-
- 
-
-// console.log(color(event))
 originalGrid()
 
 function originalGrid() {
@@ -23,9 +39,10 @@ function originalGrid() {
   for (let i = 0; i < gridSize * gridSize; i++) {
     const newDiv = document.createElement('div');
     newDiv.setAttribute('id', 'grid');
-    newDiv.addEventListener('mouseover', function (event) {
-      event.target.style.backgroundColor = 'black'
-    });
+    newDiv.addEventListener('mouseover',
+      function (event) {
+        event.target.style.backgroundColor = 'black'
+      })
     container.appendChild(newDiv);
   }
 }
