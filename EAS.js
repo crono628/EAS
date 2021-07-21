@@ -1,10 +1,13 @@
-const container = document.querySelector(".container")
-const gridInfo = document.querySelector("#gridInfo")
+const container = document.querySelector(".container");
+const gridInfo = document.querySelector("#gridInfo");
 const btnClear = document.querySelector('#clear');
-btnClear.onclick = () => clearGrid();
-const colorChoices = document.querySelector('.btnContainer')
+const customBtn = document.querySelector('#customBtn');
+const rainbow = document.querySelector('#rainbow')
+const allButtons = document.querySelectorAll(".btn")
+const colorChoices = document.querySelector('.btnContainer');
 let defaultColor = 'black'
 let action = false;
+
 function rainbowSelection() {
   let rainbowChoices = Math.floor(Math.random() * 16777215).toString(16)
   return rainbowChoices
@@ -19,35 +22,33 @@ const fillDiv = function (e) {
     el = document.elementFromPoint(e.touches[0].pageX, e.touches[0].pageY)
     if (action && el.parentElement === container) {
       el.style.backgroundColor = customBtn.value
+
     }
   }
   else if (action) {
-    e.target.style.backgroundColor = '#' + rainbowSelection()
+    e.target.style.backgroundColor = '#' + rainbowSelection();
   }
 }
 
 
-let rainbow = document.querySelector('#rainbow')
-rainbow.addEventListener('click', () => {
-  let div = document.querySelectorAll('#grid');
-  div.forEach((option) => {
-    option.addEventListener('mouseover', () => {
-      option.style.backgroundColor = '#' + rainbowChoices;
-    });
-  });
-});
+// rainbow.addEventListener('click', () => {
+//   let div = document.querySelectorAll('#grid');
+//   div.forEach((option) => {
+//     option.addEventListener('mouseover', () => {
+//       option.style.backgroundColor = '#' + rainbowChoices;
+//     });
+//   });console.log(penColor(#))
+// });
 
-
-const customBtn = document.querySelector('#customBtn')
-customBtn.addEventListener('click', () => {
-  let div = document.querySelectorAll('#grid');
-  div.setAttribute('draggable', 'false');
-  div.forEach((option) => {
-    option.addEventListener('mouseover', function (e) {
-      option.style.backgroundColor = customBtn.value;
-    });
-  });
-});
+// customBtn.addEventListener('click', () => {
+//   let div = document.querySelectorAll('#grid');
+//   div.setAttribute('draggable', 'false');
+//   div.forEach((option) => {
+//     option.addEventListener('mouseover', function (e) {
+//       option.style.backgroundColor = customBtn.value;
+//     });
+//   });
+// });
 
 
 originalGrid()
@@ -85,5 +86,5 @@ function clearGrid() {
   originalGrid();
 }
 
-
+btnClear.onclick = () => clearGrid();
 
