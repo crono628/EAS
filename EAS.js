@@ -1,11 +1,16 @@
-const container = document.querySelector(".container")
-const gridInfo = document.querySelector("#gridInfo")
+const container = document.querySelector(".container");
+const gridInfo = document.querySelector("#gridInfo");
 const btnClear = document.querySelector('#clear');
-btnClear.onclick = () => clearGrid();
-const colorChoices = document.querySelector('.btnContainer')
-let defaultColor = 'black'
-let rainbowChoices = Math.floor(Math.random() * 16777215).toString(16)
+const customBtn = document.querySelector('#customBtn');
+const rainbow = document.querySelector('#rainbow')
+const allButtons = document.querySelectorAll(".btn")
+const colorChoices = document.querySelector('.btnContainer');
 let action = false;
+
+function rainbowSelection() {
+  let rainbowChoices = Math.floor(Math.random() * 16777215).toString(16)
+  return rainbowChoices
+}
 
 const fillDiv = function (e) {
   if (e.type === 'mousedown' || e.type === 'touchstart') {
@@ -13,37 +18,16 @@ const fillDiv = function (e) {
   }
   if (e.touches) {
     e.preventDefault();
-    if (action && parentElement === container) {
-      style.backgroundColor = customBtn.value
+    el = document.elementFromPoint(e.touches[0].pageX, e.touches[0].pageY)
+    if (action && el.parentElement === container) {
+      e.target.style.backgroundColor = customBtn.value;
+      // el.style.backgroundColor = rainbowF();
     }
   }
   else if (action) {
-    e.target.style.backgroundColor = customBtn.value
+    e.target.style.backgroundColor = '#' + rainbowSelection()
   }
 }
-
-
-// let rainbow = document.querySelector('#rainbow')
-// rainbow.addEventListener('click', () => {
-//   let div = document.querySelectorAll('#grid');
-//   div.forEach((option) => {
-//     option.addEventListener('mouseover', () => {
-//       option.style.backgroundColor = '#' + rainbowChoices;
-//     });
-//   });
-// });
-
-// const customBtn = document.querySelector('#customBtn')
-// customBtn.addEventListener('click', () => {
-//   let div = document.querySelectorAll('#grid');
-//   div.setAttribute('draggable', 'false');
-//   div.forEach((option) => {
-//     option.addEventListener('mouseover', function (e) {
-//       option.style.backgroundColor = customBtn.value;
-//     });
-//   });
-// });
-
 
 originalGrid()
 
@@ -54,7 +38,7 @@ function originalGrid() {
     const newDiv = document.createElement('div');
     newDiv.setAttribute('id', 'grid');
     newDiv.addEventListener('mousedown', fillDiv);
-    newDiv.addEventListener('mousemove', fillDiv);
+    newDiv.addEventListener('mouseover', fillDiv);
     newDiv.addEventListener('touchstart', fillDiv);
     newDiv.addEventListener('touchmove', fillDiv)
     newDiv.addEventListener('dragstart', e => e.preventDefault());
@@ -80,5 +64,4 @@ function clearGrid() {
   originalGrid();
 }
 
-
-
+btnClear.onclick = () => clearGrid();
