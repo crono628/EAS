@@ -1,34 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="style.css">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etch-A-Sketch</title>
+  <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-
-	<div class="sliderContainer">
-		<input type="range" min="4" max="64" value="16" id="slider">
-    <p id="gridInfo"></p> 
-      
+  <div class="container">
+    <div class="slide-container"><input min="2" max="50" value="16" type="range" class="slider" id="my-slider"></div>
   </div>
-  
-  <div class="btnContainer">
-        <button class = "btn" id="clear">CLEAR</button>
-        <button class="btn" for="customBtn">CHOOSE</label>
-          <input type="color" id="customBtn" value="">
-         
-        <button class = "btn" id="rainbow">RAINBOW</button>
-  </div>
- 
-  <div class="container"></div>
 
 </body>
-
-<script src="EAS.js"></script>
+<script src="script.js" defer></script>
 
 </html>
