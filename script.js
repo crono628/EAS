@@ -3,19 +3,15 @@ const toggleBtn = document.querySelector('.toggle-grid')
 const blackBtn = document.querySelector('.black-btn')
 const rainbowBtn = document.querySelector('.rainbow-btn')
 const btnDiv = document.querySelector('.btn-div')
-
-resetBtn.onclick = () => clearGrid()
-toggleBtn.onclick = () => gridBeGone()
-blackBtn.onclick = () => blackInk()
-rainbowBtn.onclick = () => rainbowInk()
+const buttons = document.querySelectorAll('[data-btn]')
 
 let slideIt = document.querySelector('.slider')
 slideIt.oninput = function () {
-  bigSlide()
+  displayGrid()
   clearGrid()
 }
 
-function bigSlide() {
+function displayGrid() {
   const container = document.querySelector('.container')
   let cellValue = document.querySelector('.slider').value
   let display = document.querySelector('.size-display')
@@ -36,24 +32,7 @@ function clearGrid() {
   while (container.firstChild) {
     container.removeChild(container.firstChild);
   }
-  bigSlide();
-}
-
-function gridBeGone() {
-  let allCells = document.querySelectorAll('.cell')
-  cellArray = [...allCells]
-  cellArray.forEach(cell => {
-    cell.classList.toggle('border')
-  });
-}
-
-function blackInk() {
-  let gridCell = document.querySelectorAll('.cell')
-  gridCell.forEach((item) => {
-    item.addEventListener('mouseenter', (e) => {
-      item.style.backgroundColor = 'black'
-    })
-  })
+  displayGrid();
 }
 
 function randomRainbow() {
@@ -61,13 +40,45 @@ function randomRainbow() {
   return color
 }
 
-function rainbowInk() {
-  let gridCell = document.querySelectorAll('.cell')
-  gridCell.forEach((item) => {
-    item.addEventListener('mouseenter', (e) => {
-      item.style.backgroundColor = '#' + randomRainbow()
-    })
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    let dataBtn = button.dataset.btn
+    let allCells = document.querySelectorAll('.cell')
+    switch (dataBtn) {
+      case 'black':
+        allCells.forEach(cell => {
+          cell.addEventListener('mouseenter', () => {
+            cell.style.backgroundColor = 'black'
+          })
+        })
+        break;
+      case 'rainbow':
+        allCells.forEach(cell => {
+          cell.addEventListener('mouseenter', (e) => {
+            cell.style.backgroundColor = '#' + randomRainbow()
+          })
+        })
+        break;
+      case 'toggle':
+        allCells.forEach(cell => {
+          cell.classList.toggle('border')
+        });
+        break;
+      case 'reset':
+        clearGrid()
+        break;
+      case 'opacity':
+      document.querySelector('.opacity-btn').classList.toggle('btn-background-color')
+        allCells.forEach(cell => {
+          cell.addEventListener('mouseenter', (e) => {
+            cell.style.opacity = parseFloat(cell.style.opacity) += 0.1
+          })
+        })
+        break;
+      default:
+        console.log('default')
+    }
   })
-}
+})
 
-bigSlide()
+displayGrid()
