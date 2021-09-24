@@ -14,7 +14,7 @@ body {
 }
 
 .cell {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
 
 .border {
@@ -26,6 +26,8 @@ body {
     height: 450px;
     width: 450px;
     margin: 15px;
+    border: solid black 10px;
+    border-radius: 10px;
 }
 
 .btn-div {
@@ -81,6 +83,6 @@ button {
     height: 50px;
 }
 
-.btn-background-color{
-  background-color: lightblue;
+.btn-background-color {
+    background-color: lightblue;
 }

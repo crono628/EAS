@@ -1,8 +1,3 @@
-const resetBtn = document.querySelector('.reset')
-const toggleBtn = document.querySelector('.toggle-grid')
-const blackBtn = document.querySelector('.black-btn')
-const rainbowBtn = document.querySelector('.rainbow-btn')
-const btnDiv = document.querySelector('.btn-div')
 const buttons = document.querySelectorAll('[data-btn]')
 
 let slideIt = document.querySelector('.slider')
@@ -21,7 +16,7 @@ function displayGrid() {
     const newDiv = document.createElement('div')
     newDiv.classList.add('cell', 'border')
     newDiv.addEventListener('mouseenter', () => {
-      newDiv.style.backgroundColor = 'black'
+      newDiv.style.backgroundColor = 'rgb(0, 0, 0)'
     })
     container.appendChild(newDiv)
   }
@@ -48,13 +43,13 @@ buttons.forEach(button => {
       case 'black':
         allCells.forEach(cell => {
           cell.addEventListener('mouseenter', () => {
-            cell.style.backgroundColor = 'black'
+            cell.style.backgroundColor = 'rgb(0, 0, 0)'
           })
         })
         break;
       case 'rainbow':
         allCells.forEach(cell => {
-          cell.addEventListener('mouseenter', (e) => {
+          cell.addEventListener('mouseenter', () => {
             cell.style.backgroundColor = '#' + randomRainbow()
           })
         })
@@ -67,11 +62,10 @@ buttons.forEach(button => {
       case 'reset':
         clearGrid()
         break;
-      case 'opacity':
-      document.querySelector('.opacity-btn').classList.toggle('btn-background-color')
+      case 'eraser':
         allCells.forEach(cell => {
-          cell.addEventListener('mouseenter', (e) => {
-            cell.style.opacity = parseFloat(cell.style.opacity) += 0.1
+          cell.addEventListener('mouseenter', () => {
+            cell.style.backgroundColor = 'rgb(255, 255, 255)'
           })
         })
         break;
