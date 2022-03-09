@@ -1,6 +1,5 @@
 import React from "react";
 import Cell from "./Cell";
-import PenSelectionForm from "./PenSelectionForm";
 import uniqid from "uniqid";
 
 const Board = (props) => {
@@ -30,14 +29,7 @@ const Board = (props) => {
     );
   }
 
-  return (
-    <div className="container">
-      <div>
-        <PenSelectionForm onChange={() => props.onChange} />
-      </div>
-      <div className="screen">{screen}</div>
-    </div>
-  );
+  return <div className="screen">{screen}</div>;
 };
 
 export default Board;
