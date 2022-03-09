@@ -1,29 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import Cell from './Cell';
-import uniqid from 'uniqid';
+import React from "react";
+import Cell from "./Cell";
+import PenSelectionForm from "./PenSelectionForm";
+import uniqid from "uniqid";
 
-const Board = () => {
-  let boardWidth = 10;
-
-  const [colArr, setColArr] = useState(
-    Array(boardWidth * boardWidth).fill(null)
-  );
-
-  const handleChange = (i) => {
-    const newColor = colArr.slice();
-    newColor[i] = 'red';
-    setColArr(newColor);
-  };
-
+const Board = (props) => {
   const renderCell = (i) => {
     return (
       <Cell
         key={uniqid()}
-        style={{ backgroundColor: colArr[i] }}
-        onMouseEnter={() => handleChange(i)}
+        style={{ backgroundColor: props.backgroundColor[i] }}
+        onMouseEnter={() => props.onMouseEnter(i)}
       />
     );
   };
+
+  const boardWidth = props.boardWidth;
 
   let screen = [];
 
@@ -39,7 +30,14 @@ const Board = () => {
     );
   }
 
-  return <div className="container">{screen}</div>;
+  return (
+    <div className="container">
+      <div>
+        <PenSelectionForm onChange={() => props.onChange} />
+      </div>
+      <div className="screen">{screen}</div>
+    </div>
+  );
 };
 
 export default Board;
