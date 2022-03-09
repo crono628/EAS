@@ -1,0 +1,24 @@
+* {
+  margin: none;
+  padding: none;
+  box-sizing: border-box;
+  font-size: 48px;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell {
+  width: 25px;
+  height: 25px;
+  border: solid black 2px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
