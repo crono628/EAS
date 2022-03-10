@@ -1,12 +1,12 @@
-import React from "react";
-import Board from "./Board";
+import React from 'react';
+import Board from './Board';
 
-const PenSelectionForm = (props) => {
+const PenSettings = (props) => {
   return (
-    <div className="fieldset">
-      <form onSubmit={props.onSubmit}>
+    <div>
+      <div className="fieldset">
         <fieldset>
-          Pen Settings
+          <label htmlFor="slider">Pen Settings:</label>
           <input
             onChange={props.onChange}
             min="5"
@@ -17,8 +17,7 @@ const PenSelectionForm = (props) => {
           />
           {props.value}
         </fieldset>
-      </form>
-
+      </div>
       <Board
         backgroundColor={props.backgroundColor}
         onMouseEnter={(i) => props.onMouseEnter(i)}
@@ -28,4 +27,4 @@ const PenSelectionForm = (props) => {
   );
 };
 
-export default PenSelectionForm;
+export default PenSettings;

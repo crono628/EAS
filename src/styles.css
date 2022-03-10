@@ -1,6 +1,6 @@
 * {
-  margin: none;
-  padding: none;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-size: 20px;
 }
@@ -9,7 +9,7 @@ html {
   background-color: lightblue;
 }
 
-#root {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,20 +17,23 @@ html {
 
 .screen {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  min-width: 200px;
-  max-width: 500px;
-  height: 400px;
+  justify-content: stretch;
   border: solid orange 10px;
+  min-width: 350px;
+  height: 400px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
 }
 
 .cell {
-  height: 20px;
-  width: 20px;
-  flex-shrink: 2;
+  width: 100%;
+  height: 10px;
+  flex: 1;
   background-color: white;
   border: solid black 2px;
 }
@@ -41,11 +44,5 @@ html {
   justify-content: center;
   align-items: center;
   min-width: 100px;
-  border: solid;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  margin: 30px;
 }

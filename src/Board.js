@@ -1,6 +1,6 @@
-import React from "react";
-import Cell from "./Cell";
-import uniqid from "uniqid";
+import React from 'react';
+import Cell from './Cell';
+import uniqid from 'uniqid';
 
 const Board = (props) => {
   const renderCell = (i) => {
@@ -20,7 +20,7 @@ const Board = (props) => {
   for (let i = 0; i < boardWidth; i++) {
     let row = [];
     for (let j = 0; j < boardWidth; j++) {
-      row.push(<div key={uniqid()}>{renderCell(i * boardWidth + j)}</div>);
+      row.push(renderCell(i * boardWidth + j));
     }
     screen.push(
       <div key={uniqid()} className="row">

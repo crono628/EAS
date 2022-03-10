@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
-import PenSelectionForm from "./PenSelectionForm";
-import "./styles.css";
+import React, { useState, useEffect } from 'react';
+import PenSettings from './PenSettings';
+import './styles.css';
 
 const App = () => {
   const [boardWidth, setBoardWidth] = useState(null);
-  const [colArr, setColArr] = useState(Array(boardWidth * boardWidth).fill(""));
+  const [colArr, setColArr] = useState(Array(boardWidth * boardWidth).fill(''));
 
   useEffect(() => {
-    setBoardWidth(document.getElementById("slider").value);
+    setBoardWidth(document.getElementById('slider').value);
   });
 
   const handleHover = (i) => {
     const newColor = colArr.slice();
-    newColor[i] = "red";
+    newColor[i] = 'red';
     setColArr(newColor);
   };
 
-  let defaultColor = "white";
+  let defaultColor = 'white';
 
   const handleSlide = (e) => {
     setBoardWidth(e.target.value);
@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <PenSelectionForm
+      <PenSettings
         backgroundColor={colArr}
         onMouseEnter={(i) => handleHover(i)}
         boardWidth={boardWidth}
